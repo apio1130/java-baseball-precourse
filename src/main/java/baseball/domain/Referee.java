@@ -10,6 +10,12 @@ public class Referee {
 
     private static final int NUMBER_LENGTH = 3;
 
+    private final Judgment judgment;
+
+    public Referee() {
+        judgment = new Judgment();
+    }
+
     /**
      * 판정 호출
      * @param computerNumbs 상대방(컴퓨터)의 3자리 숫자
@@ -19,7 +25,7 @@ public class Referee {
     public Judgment callJudgment(List<Integer> computerNumbs, List<Integer> playerNumbs) {
         int ballCount = checkBall(computerNumbs, playerNumbs);
         int strikeCount = checkStrike(computerNumbs, playerNumbs);
-        return new Judgment(ballCount, strikeCount);
+        return judgment.call(ballCount, strikeCount);
     }
 
     private int checkBall(List<Integer> computerNumbs, List<Integer> playerNumbs) {
