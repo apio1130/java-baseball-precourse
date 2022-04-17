@@ -21,8 +21,20 @@ public class Computer {
      */
     public List<Integer> pickThreeNumbers() {
         numbers.clear();
-        numbers.addAll(Randoms.pickUniqueNumbersInRange(1, 9, 3));
+        while (numbers.size() < 3) {
+            pickNumber();
+        }
         return numbers;
+    }
+
+    /**
+     * 1에서 9까지의 하나의 숫자 뽑기
+     */
+    private void pickNumber() {
+        int temp = Randoms.pickNumberInRange(1, 9);
+        if (!numbers.contains(temp)) {
+            numbers.add(temp);
+        }
     }
 
     /**
