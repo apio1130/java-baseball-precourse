@@ -13,9 +13,8 @@ public class Application {
         Player player = new Player();       // 사용자
         // 숫자 야구 게임 시작
         NumbersBaseballGame game = new NumbersBaseballGame(computer, referee, player);
-        game.play();    // 게임 시작
-        while (game.isContinue()) { // 재시작 여부 체크
-            game.play();
-        }
+        do {
+            game.play();    // 게임 시작
+        } while (game.isContinue());  // 재시작 여부 체크
     }
 }
